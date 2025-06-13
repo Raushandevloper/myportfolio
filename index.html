@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashu | Futuristic Data Science Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      overflow-x: hidden;
+      animation: neonPulse 20s ease-in-out infinite;
+    }
+    @keyframes neonPulse {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    header {
+      background: rgba(10, 10, 30, 0.85);
+      backdrop-filter: blur(15px);
+      padding: 15px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 20px #00ffff55;
+    }
+    nav h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #0ff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+      position: relative;
+      transition: 0.3s;
+    }
+    nav a::after {
+      content: '';
+      height: 3px;
+      width: 0;
+      background: #00ffff;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transition: 0.4s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 160px 20px 100px;
+      background: url('https://images.unsplash.com/photo-1617293376546-cb5df35c5809') center/cover no-repeat;
+      background-blend-mode: overlay;
+    }
+    .hero h2 {
+      font-size: 56px;
+      color: #00ffff;
+      text-shadow: 0 0 20px #0ff;
+    }
+    .typing {
+      font-size: 24px;
+      margin-top: 20px;
+      height: 40px;
+    }
+    .btn, .resume-btn {
+      padding: 14px 28px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      background: linear-gradient(to right, #00f0ff, #00ffae);
+      color: #000;
+      margin: 20px 10px;
+      box-shadow: 0 0 15px #00ffff88;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .btn:hover, .resume-btn:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px #00ffff88;
+      backdrop-filter: blur(12px);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .skills-list li {
+      padding: 10px 22px;
+      border-radius: 30px;
+      background: #0ff3;
+      color: #0ff;
+      box-shadow: 0 0 10px #00ffff66;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.07);
+      padding: 30px;
+      border-radius: 20px;
+      margin: 30px auto;
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #00ffff66;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #000;
+    }
+    button {
+      padding: 14px;
+      background: #00ffff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0ff;
+      transform: scale(1.05);
+    }
+
+    .socials a {
+      color: #00ffff;
+      font-size: 26px;
+      margin: 0 12px;
+      transition: transform 0.3s;
+    }
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+
+    footer {
+      padding: 30px;
+      background: #0a0a1a;
+      text-align: center;
+    }
+    footer p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00ffff;
+      color: black;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1>web devloper</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>I'm Raushan👋</h2>
+  <div class="typing" id="typing-text"></div>
+  <a href="#contact" class="btn">Hire Me</a>
+  <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
+</section>
+
+<section id="about" class="glass">
+  <h2>About Me</h2>
+  <p>I’m a B.Tech student passionate about futuristic technology,creative development. I explore web devlopment to build innovative, performance-driven web .</p>
+</section>
+
+<section id="skills" class="glass">
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JavaScript</li>
+    <li>SQL</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-card">
+    <h3>Netflix Clone</h3>
+    <p>Responsive frontend Netflix UI using HTML, CSS, JS.</p>
+  </div>
+  <div class="project-card">
+    <h3>Weather App</h3>
+    <p>Live weather updates using OpenWeather API with futuristic UI.</p>
+  </div>
+</section>
+
+<section id="contact" class="glass">
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <div class="socials">
+    <a href="https://github.com/Raushandevloper"><i class="fab fa-github"></i></a>
+    <a href="https://lnk.ink/rqQxm"><i class="fab fa-linkedin"></i></a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 raushan | Crafted with ❤ and futuristic vision 🚀</p>
+</footer>
+
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
+<script>
+  const phrases = ["Aspiring web devloper", "Tech Explorer", "Futuristic Developer"];
+  let i = 0, j = 0, current = '', isDeleting = false;
+  const typing = document.getElementById("typing-text");
+  function type() {
+    typing.innerHTML = current;
+    if (!isDeleting && j < phrases[i].length) {
+      current += phrases[i][j++];
+    } else if (isDeleting && j > 0) {
+      current = current.slice(0, --j);
+    } else if (!isDeleting && j === phrases[i].length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    } else if (isDeleting && j === 0) {
+      isDeleting = false;
+      i = (i + 1) % phrases.length;
+    }
+    setTimeout(type, isDeleting ? 40 : 100);
+  }
+  type();
+
+  const topBtn = document.getElementById("backToTop");
+  window.onscroll = () => {
+    topBtn.style.display = window.scrollY > 200 ? "block" : "none";
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+</body>
+</html>
